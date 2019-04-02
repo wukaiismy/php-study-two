@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use function GuzzleHttp\Psr7\readline;
 
 class SessionsController extends Controller
 {
@@ -30,5 +31,14 @@ class SessionsController extends Controller
             session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
             return redirect()->back()->withInput();
         }
+    }
+    /**
+     * 用户退出操作
+     */
+    public function destroy()
+    {
+        Auth::logout();
+        session()->flash('success', '您已经成功退出！0');
+        return redirect('login');
     }
 }
