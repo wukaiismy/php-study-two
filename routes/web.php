@@ -22,6 +22,7 @@ Route::get('signup', 'UsersController@create')->name('signup');
 
 /**
  * 显示用户界面的相关路由
+ * 编辑表单相关路由
  */
 
 Route::resource('users', 'UsersController');
@@ -32,4 +33,3 @@ Route::resource('users', 'UsersController');
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
-
