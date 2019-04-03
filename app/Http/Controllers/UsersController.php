@@ -76,7 +76,16 @@ class UsersController extends Controller
         return view('users.index', compact('users'));
     }
 
-
+    /**
+     * 管理员删除用户的控制器
+     * 
+     */
+    public function destroy(User $user)
+    {
+        $user->delete();
+        session()->flash('success', '成功删除用户！');
+        return back();
+    }
 
     /**
      * 权限控制--中间件
